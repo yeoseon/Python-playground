@@ -23,12 +23,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#nw-vip0*a^yco4$6&s1_fl958j211$vvs7xl$t)3$px4h)l-3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 에러 발생시 디버그로그 표시 옵션
+# 공격자에게 유용하게 쓰일 수 있기 때문에, 운영환경에서는 False로 설정되어야 한다.
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
 
 # Application definition
+# 생성한 app을 프로젝트에 등록하는 것.
+# 도구가 실행될 때 프로젝트에 포함시키기 위함
+# 구성객체인 CatalogConfig 를 지정함
+# 어플리케이션 생성시 apps.py 안에 생성된다.
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'helloworld.apps.HelloworldConfig',
+    'catalog.apps.CatalogConfig',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +79,8 @@ WSGI_APPLICATION = 'DjangoPlayground.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# 개발환경과 운영환경에 동일한 데이터베이스를 사용하는 것이 좋다.
+# 위 사이트에서 여러가지 가능한 옵션을 확인할 수 있다.
 
 DATABASES = {
     'default': {
