@@ -25,7 +25,14 @@ import helloworld.views
 
 # 만일 www.xxxx.com/catalog 로 시작되는 request 가 오면 catalog/urls.py 를 참조해서 관련된 화일을 mapping 하겠다는 의미.
 urlpatterns = [
-    path('/helloworld', helloworld.views.home, name='home'),
+    path('helloworld/', helloworld.views.home, name='home'),
     path('catalog/', include('catalog.urls')),
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# admin url
+urlpatterns += [
+    # yyskr
+    # dbssu0430
+    path('admin/', admin.site.urls),
+]
